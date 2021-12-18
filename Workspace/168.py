@@ -6,17 +6,17 @@ class Solution(object):
         """
 
         #Constructing Dictionary
-        ref = '_ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        ref = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
         res = ''
-        while columnNumber >= 26:
+        while columnNumber > 26:
             tmp = columnNumber // 26
-            res = ref[(columnNumber - (tmp*26))] + res
+            res = ref[(columnNumber - (tmp*26))-1] + res
             columnNumber = tmp
-        if columnNumber:
-            res = ref[columnNumber] + res
+        if columnNumber >= 0:
+            res = ref[columnNumber-1] + res
         return res
 
 
 ## Main
 sol = Solution()
-print(sol.convertToTitle(701))
+print(sol.convertToTitle(52))

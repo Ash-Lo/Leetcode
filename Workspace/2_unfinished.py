@@ -10,21 +10,22 @@ class Solution(object):
         :type l2: ListNode
         :rtype: ListNode
         """
-        res = ListNode()
-        tail = res
+        dummy = ListNode()
+        tail = dummy
 
         def add(val1,val2, carry):
             return (val1 + val2 + carry) % 10, (val1 + val2 + carry) // 10
 
         carry = 0
         while l1 and l2:
-            tail.val, carry = add(l1.val, l2.val, carry)
-            tail.next = ListNode()
-            tail = tail.next
+            l1.val, carry = add(l1.val, l2.val, carry)
+            tail.next = l1
+            l1 = l1.next
+            l2 = l2.next
 
         if carry:
             tail.next = ListNode()
             tail = tail.next
             tail.val = carry
 
-        return res
+        return dummy.next

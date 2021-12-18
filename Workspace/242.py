@@ -18,16 +18,22 @@ class Solution(object):
 
         dict1 = dict(s)
         dict2 = dict(t)
-        l1 = list(dict1.values())
-        l2 = list(dict2.values())
-        l1.sort()
-        l2.sort()
+        #print(dict1, dict2)
+        # l1 = list(dict1.values())
+        # l2 = list(dict2.values())
+        # l1.sort()
+        # l2.sort()
+        flag = 0
+        for key in dict1.keys():
+            if dict1[key] != dict2[key]:
+                flag = 1
+                break
+            else: continue
         #print(l1,l2)
-        if dict1.keys() == dict2.keys() and l1 == l2:
-            return True
-        else:
+        if flag:
             return False
+        return True
 
 ## Main
 sol = Solution()
-print(sol.isAnagram("aacc", "ccac"))
+print(sol.isAnagram("", ""))
