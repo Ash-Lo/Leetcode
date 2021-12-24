@@ -19,6 +19,26 @@ class Solution:
                 num = num // 16
             return hex
 
+
+
+class Constructor_eg:
+    def __init__(self):
+        self.length = 5
+        self.breadth = 10
+
+    def overwrite(self, val1, val2):
+        self.length = val1
+        self.breadth = val2
+
+    def get_val(self):
+        return self.length, self.breadth
 ## Main
-sol = Solution()
-print(sol.toHex(-1))
+#sol = Solution()
+#print(sol.toHex(-1))
+
+example = Constructor_eg()
+print(example.length, example.breadth)
+example.overwrite(100,100)
+print(example.length, example.breadth)
+
+
